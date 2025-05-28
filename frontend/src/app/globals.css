@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&display=swap');
+/* TODO: User needs to provide a valid CDN or local path for Geist Sans */
+/* @import url('https://cdn.example.com/geist-sans.css'); */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,10 +10,16 @@
   :root {
     --color-border-default: 255, 255, 255, 0.2;
     --scrollbar-width: 0.1rem;
+
+    /* Manually defined font variables */
+    --font-geist-sans: 'Geist', sans-serif; /* Ensure 'Geist' matches the actual font name after import */
+    --font-dm-mono: 'DM Mono', monospace;
   }
 
   body {
     @apply bg-background/80 text-secondary;
+    font-family: var(--font-geist-sans);
+    /* @apply antialiased; Tailwind typically includes this via preflight */
   }
 }
 

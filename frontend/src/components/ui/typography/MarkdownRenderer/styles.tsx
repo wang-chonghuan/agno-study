@@ -2,8 +2,7 @@
 
 import { FC, useState } from 'react'
 
-import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from 'react-router-dom'; // Replaced next/link
 import { cn } from '@/lib/utils'
 
 import type {
@@ -182,23 +181,26 @@ const Img = ({ src, alt }: ImgProps) => {
       {error ? (
         <div className="flex h-40 flex-col items-center justify-center gap-2 rounded-md bg-secondary/50 text-muted">
           <Paragraph className="text-primary">Image unavailable</Paragraph>
-          <Link
-            href={src}
-            target="_blank"
-            className="max-w-md truncate underline"
-          >
-            {src}
-          </Link>
+          {typeof src === 'string' ? (
+            <Link
+              to={src}
+              target="_blank"
+              className="max-w-md truncate underline"
+            >
+              {src}
+            </Link>
+          ) : (
+            <span className="max-w-md truncate text-muted-foreground">Invalid image source (not a string)</span>
+          )}
         </div>
       ) : (
-        <Image
+        <img
           src={src}
-          width={1280}
-          height={720}
+          width={1280} // Retained for consistency, CSS might override
+          height={720} // Retained for consistency, CSS might override
           alt={alt ?? 'Rendered image'}
           className="size-full rounded-md object-cover"
           onError={() => setError(true)}
-          unoptimized
         />
       )}
     </div>
