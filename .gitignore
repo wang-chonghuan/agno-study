@@ -43,6 +43,17 @@
 *.tsbuildinfo
 /frontend/next-env.d.ts
 
+# Frontend-Vite
+/frontend-vite/node_modules/
+/frontend-vite/dist/
+/frontend-vite/.vite/
+/frontend-vite/coverage/
+/frontend-vite/.env*
+/frontend-vite/npm-debug.log*
+/frontend-vite/yarn-debug.log*
+/frontend-vite/yarn-error.log*
+/frontend-vite/.pnpm-debug.log*
+
 # Python virtual environments
 /backend/venv/
 /backend/.venv/
